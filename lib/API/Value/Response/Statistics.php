@@ -4,7 +4,7 @@
 namespace Marek\Covid19\API\Value\Response;
 
 
-class Statistics
+class Statistics extends Response
 {
 
 }

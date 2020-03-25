@@ -32,6 +32,8 @@
         "ext-json": "*",
         "symfony/serializer": "^5.0",
         "symfony/http-client": "^5.0",
+        "symfony/yaml": "^5.0",
+        "symfony/property-access": "^5.0",
         "symfony/cache": "^5.0"
     },
     "require-dev": {

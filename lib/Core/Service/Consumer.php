@@ -20,7 +20,7 @@ final class Consumer implements Endpoints
 {
     private const URL_SUMMARY = 'https://api.covid19api.com/summary';
     private const URL_COUNTRIES = 'https://api.covid19api.com/countries';
-    private const URL_DAY_ONE = 'https://api.covid19api.com/dayone/country/{country}}/status/{case}}';
+    private const URL_DAY_ONE = 'https://api.covid19api.com/dayone/country/{country}/status/{case}';
     private const URL_DAY_ONE_LIVE = 'https://api.covid19api.com/dayone/country/{country}/status/{case}/live';
     private const URL_DAY_ONE_TOTAL = 'https://api.covid19api.com/total/dayone/country/{country}/status/{case}';
     private const URL_BY_COUNTRY = 'https://api.covid19api.com/country/{country}/status/{case}';
@@ -65,12 +65,16 @@ final class Consumer implements Endpoints
 
         $result = $this->getResult($params->getUrl());
 
-        var_dump($result);
+        return $this->denormalizer->denormalize($result, new Summary());
     }
 
     public function getCountries(): Countries
     {
-        // TODO: Implement getCountries() method.
+        $params = $this->factory->buildBag(self::URL_COUNTRIES);
+
+        $result = $this->getResult($params->getUrl());
+
+        return $this->denormalizer->denormalize($result, new Countries());
     }
 
     public function getDayOne(Country $country, Status $status): Report
@@ -86,47 +90,98 @@ final class Consumer implements Endpoints
 
     public function getDayOneLive(Country $country, Status $status): Report
     {
-        // TODO: Implement getDayOneLive() method.
+        $params = $this->factory->buildBag(self::URL_DAY_ONE_LIVE);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getDayOneTotal(Country $country, Status $status): Report
     {
-        // TODO: Implement getDayOneTotal() method.
+        $params = $this->factory->buildBag(self::URL_DAY_ONE_TOTAL);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getByCountry(Country $country, Status $status): Report
     {
-        // TODO: Implement getByCountry() method.
+        $params = $this->factory->buildBag(self::URL_BY_COUNTRY);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getByCountryLive(Country $country, Status $status): Report
     {
-        // TODO: Implement getByCountryLive() method.
+        $params = $this->factory->buildBag(self::URL_BY_COUNTRY_LIVE);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getCountryTotal(Country $country, Status $status): Report
     {
-        // TODO: Implement getCountryTotal() method.
+        $params = $this->factory->buildBag(self::URL_BY_COUNTRY_TOTAL);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getLiveByCountryAndStatus(Country $country, Status $status): Report
     {
-        // TODO: Implement getLiveByCountryAndStatus() method.
+        $params = $this->factory->buildBag(self::URL_LIVE_BY_COUNTRY_AND_STATUS);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getLiveByCountryAndStatusAfterDate(Country $country, Status $status, DateAndTime $date): Report
     {
-        // TODO: Implement getLiveByCountryAndStatusAfterDate() method.
+        $params = $this->factory->buildBag(self::URL_LIVE_BY_COUNTRY_AND_STATUS_AFTER_DATE);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+        $params->setUriParameter($date);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Report([]);
     }
 
     public function getAllData(): AllData
     {
-        // TODO: Implement getAllData() method.
+        $params = $this->factory->buildBag(self::URL_ALL_DATA);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new AllData([]);
     }
 
     public function getStats(): Statistics
     {
-        // TODO: Implement getStats() method.
+        $params = $this->factory->buildBag(self::URL_STATS);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return new Statistics([]);
     }
 
     protected function getResult(string $url): array

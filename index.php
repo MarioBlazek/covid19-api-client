@@ -9,4 +9,16 @@ $factory = new \Marek\Covid19\Core\Factory\ConsumerFactory($cacheHandler);
 
 $consumer = $factory->createAPIConsumer();
 
-$consumer->getSummary();
+/** @var \Marek\Covid19\API\Value\Response\Summary $summary */
+//$summary = $consumer->getSummary();
+
+
+$country = new \Marek\Covid19\API\Value\Parameter\Country('spain');
+$status = new \Marek\Covid19\API\Value\Parameter\Status(
+    \Marek\Covid19\API\Constraints\Cases::DEATHS
+);
+
+//$res = $consumer->getDayOne($country, $status);
+
+$res = $consumer->getCountries();
+dump($res);

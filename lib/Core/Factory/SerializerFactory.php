@@ -17,7 +17,7 @@ final class SerializerFactory
     public function create(): Serializer
     {
         $classMetadataFactory = new ClassMetadataFactory(
-            new YamlFileLoader(__DIR__ . '/../Resources/config/definition.yaml')
+            new YamlFileLoader(__DIR__ . '/../../Resources/config/definition.yaml')
         );
 
         $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);

@@ -1,0 +1,44 @@
+Marek\Covid19\API\Value\Response\CountrySummary:
+    attributes:
+        country:
+            serialized_name: Country
+        slug:
+            serialized_name: Slug
+        newConfirmed:
+            serialized_name: NewConfirmed
+        totalConfirmed:
+            serialized_name: TotalConfirmed
+        newDeaths:
+            serialized_name: NewDeaths
+        totalDeaths:
+            serialized_name: TotalDeaths
+        newRecovered:
+            serialized_name: NewRecovered
+        totalRecovered:
+            serialized_name: TotalRecovered
+
+Marek\Covid19\API\Value\Response\CountryReport:
+    attributes:
+        country:
+            serialized_name: Country
+        province:
+            serialized_name: Province
+        latitude:
+            serialized_name: Lat
+        longitude:
+            serialized_name: Lon
+        date:
+            serialized_name: Date
+        cases:
+            serialized_name: Cases
+        status:
+            serialized_name: Status
+
+Marek\Covid19\API\Value\Response\Country:
+    attributes:
+        country:
+            serialized_name: Country
+        slug:
+            serialized_name: Slug
+        provinces:
+            serialized_name: Provinces

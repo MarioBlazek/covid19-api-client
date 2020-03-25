@@ -27,16 +27,16 @@ class ConsumerFactory
     protected $factory;
 
     /**
-     * @var \Marek\Covid19\Core\Factory\SerializerFactory
+     * @var \Marek\Covid19\Core\Factory\DenormalizerFactory
      */
-    protected $serializer;
+    protected $denormalizer;
 
     public function __construct(HandlerInterface $cache)
     {
         $this->cache = $cache;
         $this->httpClient = new SymfonyHttpClient(HttpClient::create());
         $this->factory = new UrlFactory();
-        $this->serializer = new SerializerFactory();
+        $this->denormalizer = new DenormalizerFactory();
     }
 
     public function createAPIConsumer(): Consumer
@@ -45,7 +45,7 @@ class ConsumerFactory
             $this->httpClient,
             $this->factory,
             $this->cache,
-            new Test()
+            $this->denormalizer->create()
         );
     }
 }
