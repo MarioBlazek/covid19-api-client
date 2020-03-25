@@ -1,0 +1,48 @@
+{
+    "name": "marioblazek/covid19-api-client",
+    "description": "PHP client for https://covid19api.com/",
+    "type": "library",
+    "keywords": [
+        "marioblazek",
+        "covid19-api-client",
+        "covid-19"
+    ],
+    "homepage": "https://github.com/MarioBlazek/covid19-api-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mario Blažek",
+            "email": "blazek.mario@gmail.com",
+            "homepage": "https://marioblazek.dev",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Marek\\Covid19\\": "lib"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Marek\\Covid19\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.3",
+        "ext-json": "*",
+        "symfony/serializer": "^5.0",
+        "symfony/http-client": "^5.0",
+        "symfony/cache": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "symfony/var-dumper": "^5.0"
+    },
+    "scripts": {
+        "test": "@php bin/phpunit --color=always"
+    },
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin"
+    }
+}

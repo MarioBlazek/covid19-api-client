@@ -1,0 +1,22 @@
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor/
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Build data
+/build/
+
+# Composer PHAR
+/composer.phar
+/composer.lock
+
+/doc/examples/api_key.php
+.php_cs.cache
+.phpunit.result.cache

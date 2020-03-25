@@ -1,0 +1,33 @@
+language: php
+
+dist: trusty
+sudo: false
+
+cache:
+    directories:
+        - vendor
+
+php:
+    - 7.3
+    - 7.4
+
+# test only master (+ pull requests)
+branches:
+    only:
+        - master
+
+# install dependencies
+install:
+    - composer install
+
+# execute phpunit as the script command
+script:
+    - composer test
+
+# disable mail notifications
+notification:
+    email: false
+
+# reduce depth (history) of git checkout
+git:
+    depth: 30
