@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Denormalizer;
 
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface as InternalDenormalizer;
@@ -13,8 +15,6 @@ abstract class AbstractDenormalizer implements DenormalizerInterface
 
     /**
      * AbstractDenormalizer constructor.
-     *
-     * @param \Symfony\Component\Serializer\Normalizer\DenormalizerInterface $denormalizer
      */
     public function __construct(InternalDenormalizer $denormalizer)
     {

@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Denormalizer;
 
-use Marek\Covid19\API\Value\Response\Country;
 use Marek\Covid19\API\Value\Response\Countries;
-use Marek\Covid19\API\Value\Response\CountrySummary;
+use Marek\Covid19\API\Value\Response\Country;
 use Marek\Covid19\API\Value\Response\Response;
 
 class CountriesDenormalizer extends AbstractDenormalizer

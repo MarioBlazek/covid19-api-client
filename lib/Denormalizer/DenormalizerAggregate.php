@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Denormalizer;
 
 use Marek\Covid19\API\Value\Response\Response;
@@ -20,7 +22,6 @@ class DenormalizerAggregate implements DenormalizerInterface
     {
         /** @var DenormalizerInterface $denormalizer */
         foreach ($this->denormalizers as $denormalizer) {
-
             if ($denormalizer->canDenormalize($data, $response)) {
                 return $denormalizer->denormalize($data, $response);
             }
