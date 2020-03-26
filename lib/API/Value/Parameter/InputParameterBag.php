@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\API\Value\Parameter;
 
 final class InputParameterBag
@@ -16,8 +18,6 @@ final class InputParameterBag
 
     /**
      * InputParameterBag constructor.
-     *
-     * @param string $url
      */
     public function __construct(string $url)
     {
@@ -37,9 +37,6 @@ final class InputParameterBag
         return $this->uriParameters;
     }
 
-    /**
-     * @return string
-     */
     public function getUrl(): string
     {
         return $this->url;

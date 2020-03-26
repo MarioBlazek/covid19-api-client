@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\API\Value\Response;
 
 class Statistics extends Response
@@ -154,113 +156,71 @@ class Statistics extends Response
         // TODO: Implement setData() method.
     }
 
-    /**
-     * @param \DateTimeImmutable $allUpdated
-     */
     public function setAllUpdated(\DateTimeImmutable $allUpdated): void
     {
         $this->allUpdated = $allUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $countriesUpdated
-     */
     public function setCountriesUpdated(\DateTimeImmutable $countriesUpdated): void
     {
         $this->countriesUpdated = $countriesUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $byCountryUpdated
-     */
     public function setByCountryUpdated(\DateTimeImmutable $byCountryUpdated): void
     {
         $this->byCountryUpdated = $byCountryUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $byCountryLiveUpdated
-     */
     public function setByCountryLiveUpdated(\DateTimeImmutable $byCountryLiveUpdated): void
     {
         $this->byCountryLiveUpdated = $byCountryLiveUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $byCountryTotalUpdated
-     */
     public function setByCountryTotalUpdated(\DateTimeImmutable $byCountryTotalUpdated): void
     {
         $this->byCountryTotalUpdated = $byCountryTotalUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $dayOneUpdated
-     */
     public function setDayOneUpdated(\DateTimeImmutable $dayOneUpdated): void
     {
         $this->dayOneUpdated = $dayOneUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $dayOneLiveUpdated
-     */
     public function setDayOneLiveUpdated(\DateTimeImmutable $dayOneLiveUpdated): void
     {
         $this->dayOneLiveUpdated = $dayOneLiveUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $dayOneTotalUpdated
-     */
     public function setDayOneTotalUpdated(\DateTimeImmutable $dayOneTotalUpdated): void
     {
         $this->dayOneTotalUpdated = $dayOneTotalUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $liveCountryStatusUpdated
-     */
     public function setLiveCountryStatusUpdated(\DateTimeImmutable $liveCountryStatusUpdated): void
     {
         $this->liveCountryStatusUpdated = $liveCountryStatusUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $liveCountryStatusAfterDateUpdated
-     */
     public function setLiveCountryStatusAfterDateUpdated(\DateTimeImmutable $liveCountryStatusAfterDateUpdated): void
     {
         $this->liveCountryStatusAfterDateUpdated = $liveCountryStatusAfterDateUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $statisticsUpdated
-     */
     public function setStatisticsUpdated(\DateTimeImmutable $statisticsUpdated): void
     {
         $this->statisticsUpdated = $statisticsUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $defaultUpdated
-     */
     public function setDefaultUpdated(\DateTimeImmutable $defaultUpdated): void
     {
         $this->defaultUpdated = $defaultUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $submitWebhookUpdated
-     */
     public function setSubmitWebhookUpdated(\DateTimeImmutable $submitWebhookUpdated): void
     {
         $this->submitWebhookUpdated = $submitWebhookUpdated;
     }
 
-    /**
-     * @param \DateTimeImmutable $summaryUpdated
-     */
     public function setSummaryUpdated(\DateTimeImmutable $summaryUpdated): void
     {
         $this->summaryUpdated = $summaryUpdated;
