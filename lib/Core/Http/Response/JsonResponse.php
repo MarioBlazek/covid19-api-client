@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Http\Response;
 
 use Marek\Covid19\API\Http\Response\ResponseInterface;
@@ -18,9 +20,6 @@ final class JsonResponse implements ResponseInterface
 
     /**
      * Response constructor.
-     *
-     * @param string $data
-     * @param int $httpCode
      */
     public function __construct(string $data, int $httpCode)
     {
@@ -34,8 +33,6 @@ final class JsonResponse implements ResponseInterface
 
     /**
      * Returns data represented as string.
-     *
-     * @return string
      */
     public function __toString(): string
     {
@@ -78,8 +75,6 @@ final class JsonResponse implements ResponseInterface
      * Checks if given string is valid json.
      *
      * @param string $string
-     *
-     * @return bool
      */
     private function isValidJson($string): bool
     {
