@@ -12,7 +12,7 @@ class ReportDenormalizer extends AbstractDenormalizer
     {
         $reports = [];
         foreach ($data as $report) {
-            $reports[] = $this->denormalizer->denormalize($report, CountryReport::class, 'json');
+            $reports[] = $this->denormalizer->denormalize($report, CountryReport::class);
         }
 
         $response->setData($reports);

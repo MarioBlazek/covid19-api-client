@@ -11,6 +11,7 @@ use Marek\Covid19\API\Value\Parameter\Status;
 use Marek\Covid19\API\Value\Response\AllData;
 use Marek\Covid19\API\Value\Response\Countries;
 use Marek\Covid19\API\Value\Response\Report;
+use Marek\Covid19\API\Value\Response\Response;
 use Marek\Covid19\API\Value\Response\Statistics;
 use Marek\Covid19\API\Value\Response\Summary;
 use Marek\Covid19\Core\Factory\UrlFactory;
@@ -79,79 +80,37 @@ final class Consumer implements Endpoints
 
     public function getDayOne(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_DAY_ONE);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return $this->denormalizer->denormalize($result, new Report());
+        return $this->buildReportValue(self::URL_DAY_ONE, $country, $status);
     }
 
     public function getDayOneLive(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_DAY_ONE_LIVE);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return new Report([]);
+        return $this->buildReportValue(self::URL_DAY_ONE_LIVE, $country, $status);
     }
 
     public function getDayOneTotal(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_DAY_ONE_TOTAL);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return new Report([]);
+        return $this->buildReportValue(self::URL_DAY_ONE_TOTAL, $country, $status);
     }
 
     public function getByCountry(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_BY_COUNTRY);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return new Report([]);
+        return $this->buildReportValue(self::URL_BY_COUNTRY, $country, $status);
     }
 
     public function getByCountryLive(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_BY_COUNTRY_LIVE);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return new Report([]);
+        return $this->buildReportValue(self::URL_BY_COUNTRY_LIVE, $country, $status);
     }
 
-    public function getCountryTotal(Country $country, Status $status): Report
+    public function getByCountryTotal(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_BY_COUNTRY_TOTAL);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return new Report([]);
+        return $this->buildReportValue(self::URL_BY_COUNTRY_TOTAL, $country, $status);
     }
 
     public function getLiveByCountryAndStatus(Country $country, Status $status): Report
     {
-        $params = $this->factory->buildBag(self::URL_LIVE_BY_COUNTRY_AND_STATUS);
-        $params->setUriParameter($country);
-        $params->setUriParameter($status);
-
-        $result = $this->getResult($this->factory->build($params));
-
-        return new Report([]);
+        return $this->buildReportValue(self::URL_LIVE_BY_COUNTRY_AND_STATUS, $country, $status);
     }
 
     public function getLiveByCountryAndStatusAfterDate(Country $country, Status $status, DateAndTime $date): Report
@@ -163,7 +122,7 @@ final class Consumer implements Endpoints
 
         $result = $this->getResult($this->factory->build($params));
 
-        return new Report([]);
+        return $this->denormalizer->denormalize($result, new Report());
     }
 
     public function getAllData(): AllData
@@ -172,16 +131,16 @@ final class Consumer implements Endpoints
 
         $result = $this->getResult($this->factory->build($params));
 
-        return new AllData([]);
+        return $this->denormalizer->denormalize($result, new AllData());
     }
 
-    public function getStats(): Statistics
+    public function getStatistics(): Statistics
     {
         $params = $this->factory->buildBag(self::URL_STATS);
 
         $result = $this->getResult($this->factory->build($params));
 
-        return new Statistics([]);
+        return $this->denormalizer->denormalize($result, new Statistics());
     }
 
     protected function getResult(string $url): array
@@ -192,8 +151,19 @@ final class Consumer implements Endpoints
 
         $response = $this->client->get($url);
 
-//        ExceptionThrower::throwException($response->getStatusCode(), $response->getMessage());
+        $this->handler->set($url, $response->getData());
 
         return $response->getData();
+    }
+
+    protected function buildReportValue(string $url, Country $country, Status $status): Response
+    {
+        $params = $this->factory->buildBag($url);
+        $params->setUriParameter($country);
+        $params->setUriParameter($status);
+
+        $result = $this->getResult($this->factory->build($params));
+
+        return $this->denormalizer->denormalize($result, new Report());
     }
 }

@@ -1,0 +1,11 @@
+[
+    {
+        "Country": "United Kingdom",
+        "Province": "United Kingdom",
+        "Lat": 55.3781,
+        "Lon": -3.436,
+        "Date": "2020-01-31T00:00:00Z",
+        "Cases": 2,
+        "Status": "confirmed"
+    }
+]

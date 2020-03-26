@@ -85,7 +85,7 @@ interface Endpoints
      *
      * @return \Marek\Covid19\API\Value\Response\Report
      */
-    public function getCountryTotal(Country $country, Status $status): Report;
+    public function getByCountryTotal(Country $country, Status $status): Report;
 
     /**
      * Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped.
@@ -117,5 +117,5 @@ interface Endpoints
     /**
      * @return \Marek\Covid19\API\Value\Response\Statistics
      */
-    public function getStats(): Statistics;
+    public function getStatistics(): Statistics;
 }

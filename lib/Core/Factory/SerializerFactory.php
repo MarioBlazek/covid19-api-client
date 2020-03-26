@@ -7,6 +7,7 @@ use Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Serializer;
 
 final class SerializerFactory
@@ -22,7 +23,7 @@ final class SerializerFactory
 
         $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
 
-        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter);
+        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, new ReflectionExtractor());
 
         return new Serializer([new DateTimeNormalizer(), $normalizer]);
     }

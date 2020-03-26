@@ -1,0 +1,16 @@
+[
+    {
+        "Country": "Afghanistan",
+        "Slug": "afghanistan",
+        "Provinces": [
+            "Test"
+        ]
+    },
+    {
+        "Country": "Albania",
+        "Slug": "albania",
+        "Provinces": [
+            "Weeeee"
+        ]
+    }
+]

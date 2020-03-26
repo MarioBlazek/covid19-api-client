@@ -29,11 +29,7 @@ final class JsonResponse implements ResponseInterface
         }
         $this->data = $data;
 
-        if (is_array($data) && array_key_exists('cod', $data)) {
-            $this->httpCode = (int)$data['cod'];
-        } else {
-            $this->httpCode = $httpCode;
-        }
+        $this->httpCode = $httpCode;
     }
 
     /**
@@ -76,30 +72,6 @@ final class JsonResponse implements ResponseInterface
         }
 
         return false;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isAuthorized(): bool
-    {
-        if ($this->httpCode !== 401) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getMessage(): string
-    {
-        if (is_array($this->data) && array_key_exists('message', $this->data)) {
-            return (string)$this->data['message'];
-        }
-
-        return '';
     }
 
     /**

@@ -42,3 +42,64 @@ Marek\Covid19\API\Value\Response\Country:
             serialized_name: Slug
         provinces:
             serialized_name: Provinces
+
+Marek\Covid19\API\Value\Response\Statistics:
+    attributes:
+        total:
+            serialized_name: Total
+        all:
+            serialized_name: All
+        allUpdated:
+            serialized_name: AllUpdated
+        countries:
+            serialized_name: Countries
+        countriesUpdated:
+            serialized_name: CountriesUpdated
+        byCountry:
+            serialized_name: ByCountry
+        byCountryUpdated:
+            serialized_name: ByCountryUpdated
+        byCountryLive:
+            serialized_name: ByCountryLive
+        byCountryLiveUpdated:
+            serialized_name: ByCountryLiveUpdated
+        byCountryTotal:
+            serialized_name: ByCountryTotal
+        byCountryTotalUpdated:
+            serialized_name: ByCountryTotalUpdated
+        dayOne:
+            serialized_name: DayOne
+        dayOneUpdated:
+            serialized_name: DayOneUpdated
+        dayOneLive:
+            serialized_name: DayOneLive
+        dayOneLiveUpdated:
+            serialized_name: DayOneLiveUpdated
+        dayOneTotal:
+            serialized_name: DayOneTotal
+        dayOneTotalUpdated:
+            serialized_name: DayOneTotalUpdated
+        liveCountryStatus:
+            serialized_name: LiveCountryStatus
+        liveCountryStatusUpdated:
+            serialized_name: LiveCountryStatusUpdated
+        liveCountryStatusAfterDate:
+            serialized_name: LiveCountryStatusAfterDate
+        liveCountryStatusAfterDateUpdated:
+            serialized_name: LiveCountryStatusAfterDateUpdated
+        statistics:
+            serialized_name: Stats
+        statisticsUpdated:
+            serialized_name: StatsUpdated
+        default:
+            serialized_name: Default
+        defaultUpdated:
+            serialized_name: DefaultUpdated
+        submitWebhook:
+            serialized_name: SubmitWebhook
+        submitWebhookUpdated:
+            serialized_name: SubmitWebhookUpdated
+        summary:
+            serialized_name: Summary
+        summaryUpdated:
+            serialized_name: SummaryUpdated

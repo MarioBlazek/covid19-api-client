@@ -24,18 +24,4 @@ interface ResponseInterface
      * @return bool
      */
     public function isOk(): bool;
-
-    /**
-     * Returns true is HTTP status code is not 401.
-     *
-     * @return bool
-     */
-    public function isAuthorized(): bool;
-
-    /**
-     * Returns message in case of error.
-     *
-     * @return string
-     */
-    public function getMessage(): string;
 }

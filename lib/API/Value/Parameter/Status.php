@@ -2,14 +2,16 @@
 
 namespace Marek\Covid19\API\Value\Parameter;
 
+use Assert\Assertion;
 use Marek\Covid19\API\Constraints\Cases;
 
 class Status implements UriParameterInterface
 {
     protected $status;
 
-    public function __construct(string $status = Cases::CONFIRMED)
+    public function __construct(string $status)
     {
+        Assertion::inArray($status, Cases::getValidEntries());
         $this->status = $status;
     }
 

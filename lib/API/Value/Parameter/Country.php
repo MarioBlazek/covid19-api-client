@@ -2,6 +2,9 @@
 
 namespace Marek\Covid19\API\Value\Parameter;
 
+use Assert\Assertion;
+use Marek\Covid19\API\Constraints\Countries;
+
 class Country implements UriParameterInterface
 {
     /**
@@ -11,6 +14,7 @@ class Country implements UriParameterInterface
 
     public function __construct(string $country)
     {
+        Assertion::inArray($country, Countries::getValidEntries());
         $this->country = $country;
     }
 

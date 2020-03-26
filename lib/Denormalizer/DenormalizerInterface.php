@@ -10,7 +10,7 @@ interface DenormalizerInterface
     /**
      * Denormalizes a response.
      *
-     * @param array $data
+     * @param string $data
      * @param \Marek\Covid19\API\Value\Response\Response $response
      *
      * @return \Marek\Covid19\API\Value\Response\Response

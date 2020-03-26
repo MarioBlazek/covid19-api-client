@@ -35,6 +35,7 @@ class SymfonyCache implements HandlerInterface
 
         $item = $this->cache->getItem($key);
 
+        dump($item->isHit());
         return $item->isHit();
     }
 
@@ -53,8 +54,8 @@ class SymfonyCache implements HandlerInterface
 
         $item = $this->cache->getItem($key);
         $item->expiresAfter($this->timeToLive);
-
         $item->set($data);
+
         $this->cache->save($item);
     }
 

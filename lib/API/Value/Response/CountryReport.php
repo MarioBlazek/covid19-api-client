@@ -25,7 +25,7 @@ class CountryReport
     public $longitude;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeImmutable
      */
     public $date;
 
@@ -38,4 +38,9 @@ class CountryReport
      * @var string
      */
     public $status;
+
+    public function setDate(\DateTimeImmutable $date): void
+    {
+        $this->date = $date;
+    }
 }
