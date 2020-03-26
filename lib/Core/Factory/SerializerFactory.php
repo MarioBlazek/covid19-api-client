@@ -1,20 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Factory;
 
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Serializer;
 
 final class SerializerFactory
 {
-    /**
-     * @return \Symfony\Component\Serializer\Serializer
-     */
     public function create(): Serializer
     {
         $classMetadataFactory = new ClassMetadataFactory(

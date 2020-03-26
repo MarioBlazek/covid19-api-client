@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Factory;
 
 use Marek\Covid19\API\Cache\HandlerInterface;
 use Marek\Covid19\Core\Http\Client\SymfonyHttpClient;
 use Marek\Covid19\Core\Service\Consumer;
-use Marek\Covid19\Denormalizer\Test;
 use Symfony\Component\HttpClient\HttpClient;
-use Marek\Covid19\API\Http\Client\HttpClientInterface;
 
 class ConsumerFactory
 {

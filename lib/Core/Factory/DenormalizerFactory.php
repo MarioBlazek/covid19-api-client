@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Factory;
 
 use Marek\Covid19\Denormalizer\AllDataDenormalizer;

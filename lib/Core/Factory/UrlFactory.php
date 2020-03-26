@@ -1,16 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Factory;
 
 use Marek\Covid19\API\Value\Parameter\InputParameterBag;
 
 final class UrlFactory
 {
-    /**
-     * @param \Marek\Covid19\API\Value\Parameter\InputParameterBag $bag
-     *
-     * @return string
-     */
     public function build(InputParameterBag $bag): string
     {
         $url = $bag->getUrl();
@@ -18,11 +15,6 @@ final class UrlFactory
         return $this->transformUriParameters($url, $bag);
     }
 
-    /**
-     * @param string $url
-     *
-     * @return \Marek\Covid19\API\Value\Parameter\InputParameterBag
-     */
     public function buildBag(string $url): InputParameterBag
     {
         return new InputParameterBag($url);
@@ -30,11 +22,6 @@ final class UrlFactory
 
     /**
      * Transforms Uri parameters.
-     *
-     * @param string $url
-     * @param \Marek\Covid19\API\Value\Parameter\InputParameterBag $bag
-     *
-     * @return string
      */
     private function transformUriParameters(string $url, InputParameterBag $bag): string
     {
