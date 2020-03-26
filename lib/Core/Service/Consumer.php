@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Service;
 
 use Marek\Covid19\API\Cache\HandlerInterface;
@@ -143,7 +145,7 @@ final class Consumer implements Endpoints
         return $this->denormalizer->denormalize($result, new Statistics());
     }
 
-    protected function getResult(string $url): array
+    private function getResult(string $url): array
     {
         if ($this->handler->has($url)) {
             return $this->handler->get($url);
@@ -156,7 +158,7 @@ final class Consumer implements Endpoints
         return $response->getData();
     }
 
-    protected function buildReportValue(string $url, Country $country, Status $status): Response
+    private function buildReportValue(string $url, Country $country, Status $status): Response
     {
         $params = $this->factory->buildBag($url);
         $params->setUriParameter($country);
