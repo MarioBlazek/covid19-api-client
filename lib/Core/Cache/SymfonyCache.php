@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Marek\Covid19\Core\Cache;
 
 use Marek\Covid19\API\Cache\HandlerInterface;
@@ -19,9 +21,6 @@ class SymfonyCache implements HandlerInterface
 
     /**
      * SymfonyCache constructor.
-     *
-     * @param \Symfony\Component\Cache\Adapter\AdapterInterface $cache
-     * @param int $timeToLive
      */
     public function __construct(AdapterInterface $cache, int $timeToLive = 3600)
     {
@@ -35,7 +34,6 @@ class SymfonyCache implements HandlerInterface
 
         $item = $this->cache->getItem($key);
 
-        dump($item->isHit());
         return $item->isHit();
     }
 
