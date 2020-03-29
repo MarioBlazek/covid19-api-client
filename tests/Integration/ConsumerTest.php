@@ -221,7 +221,7 @@ class ConsumerTest extends TestCase
                 'getByCountry',
             ],
             [
-                'https://api.covid19api.com/country/united-kingdom/status/confirmed/confirmed',
+                'https://api.covid19api.com/country/united-kingdom/status/confirmed/live',
                 'getByCountryLive',
             ],
             [

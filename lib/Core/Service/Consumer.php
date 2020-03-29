@@ -27,7 +27,7 @@ final class Consumer implements Endpoints
     private const URL_DAY_ONE_LIVE = 'https://api.covid19api.com/dayone/country/{country}/status/{case}/live';
     private const URL_DAY_ONE_TOTAL = 'https://api.covid19api.com/total/dayone/country/{country}/status/{case}';
     private const URL_BY_COUNTRY = 'https://api.covid19api.com/country/{country}/status/{case}';
-    private const URL_BY_COUNTRY_LIVE = 'https://api.covid19api.com/country/{country}/status/confirmed/{case}';
+    private const URL_BY_COUNTRY_LIVE = 'https://api.covid19api.com/country/{country}/status/{case}/live';
     private const URL_BY_COUNTRY_TOTAL = 'https://api.covid19api.com/total/country/{country}/status/{case}';
     private const URL_LIVE_BY_COUNTRY_AND_STATUS = 'https://api.covid19api.com/live/country/{country}/status/{case}';
     private const URL_LIVE_BY_COUNTRY_AND_STATUS_AFTER_DATE = 'https://api.covid19api.com/live/country/{country}/status/{case}/date/{date_and_time}';
