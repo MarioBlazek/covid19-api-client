@@ -22,7 +22,7 @@ class Report extends Response
     /**
      * @param \Marek\Covid19\API\Value\Response\CountryReport[] $data
      */
-    public function setData(array $data)
+    public function setData(array $data): void
     {
         $this->reports = $data;
     }

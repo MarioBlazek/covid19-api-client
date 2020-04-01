@@ -9,6 +9,9 @@ use Marek\Covid19\API\Constraints\Cases;
 
 class Status implements UriParameterInterface
 {
+    /**
+     * @var string
+     */
     protected $status;
 
     public function __construct(string $status)

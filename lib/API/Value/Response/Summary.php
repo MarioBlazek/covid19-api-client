@@ -22,7 +22,7 @@ class Summary extends Response
     /**
      * @param \Marek\Covid19\API\Value\Response\CountrySummary[] $data
      */
-    public function setData(array $data)
+    public function setData(array $data): void
     {
         $this->summaries = $data;
     }

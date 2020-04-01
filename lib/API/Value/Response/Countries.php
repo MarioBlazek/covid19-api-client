@@ -9,7 +9,7 @@ class Countries extends Response
     /**
      * @var \Marek\Covid19\API\Value\Response\Country[]
      */
-    protected $countries;
+    protected $countries = [];
 
     /**
      * @return \Marek\Covid19\API\Value\Response\Country[]
@@ -22,7 +22,7 @@ class Countries extends Response
     /**
      * @param \Marek\Covid19\API\Value\Response\Country[] $data
      */
-    public function setData(array $data)
+    public function setData(array $data): void
     {
         $this->countries = $data;
     }

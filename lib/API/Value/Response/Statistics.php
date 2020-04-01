@@ -151,9 +151,8 @@ class Statistics extends Response
      */
     public $summaryUpdated;
 
-    public function setData(array $data)
+    public function setData(array $data): void
     {
-        // TODO: Implement setData() method.
     }
 
     public function setAllUpdated(\DateTimeImmutable $allUpdated): void

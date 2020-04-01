@@ -6,5 +6,8 @@ namespace Marek\Covid19\API\Value\Response;
 
 abstract class Response
 {
-    abstract public function setData(array $data);
+    /**
+     * @param array $data
+     */
+    abstract public function setData(array $data): void;
 }

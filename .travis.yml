@@ -23,6 +23,7 @@ install:
 # execute phpunit as the script command
 script:
     - composer test
+    - composer psalm
 
 # disable mail notifications
 notification:
