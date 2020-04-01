@@ -46,6 +46,7 @@
     },
     "scripts": {
         "test": "@php bin/phpunit --color=always",
+        "coverage": "@php -dzend_extension=xdebug.so vendor/bin/phpunit --colors=always",
         "fix": "@php bin/php-cs-fixer fix",
         "psalm": "@php bin/psalm"
     },

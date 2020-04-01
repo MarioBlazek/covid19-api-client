@@ -22,7 +22,7 @@ install:
 
 # execute phpunit as the script command
 script:
-    - composer test
+    - bin/phpunit --colors -c phpunit.xml.dist --coverage-clover=coverage.xml
     - composer psalm
 
 # disable mail notifications
@@ -32,3 +32,6 @@ notification:
 # reduce depth (history) of git checkout
 git:
     depth: 30
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
