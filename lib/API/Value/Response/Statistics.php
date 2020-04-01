@@ -151,6 +151,9 @@ class Statistics extends Response
      */
     public $summaryUpdated;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function setData(array $data): void
     {
     }

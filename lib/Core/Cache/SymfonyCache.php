@@ -6,6 +6,7 @@ namespace Marek\Covid19\Core\Cache;
 
 use Marek\Covid19\API\Cache\HandlerInterface;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
+use Marek\Covid19\API\Constraints\TimeToLive;
 
 class SymfonyCache implements HandlerInterface
 {
@@ -22,7 +23,7 @@ class SymfonyCache implements HandlerInterface
     /**
      * SymfonyCache constructor.
      */
-    public function __construct(AdapterInterface $cache, int $timeToLive = 3600)
+    public function __construct(AdapterInterface $cache, int $timeToLive = TimeToLive::TTL_ONE_HOUR)
     {
         $this->cache = $cache;
         $this->timeToLive = $timeToLive;

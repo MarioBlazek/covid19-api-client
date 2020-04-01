@@ -17,6 +17,9 @@
     <filter>
         <whitelist>
             <directory suffix=".php">lib/</directory>
+            <exclude>
+                <file>lib/Core/Http/Client/SymfonyHttpClient.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <logging>
