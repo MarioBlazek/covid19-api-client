@@ -30,6 +30,9 @@ class DenormalizerAggregate implements DenormalizerInterface
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function canDenormalize(array $data, Response $response): bool
     {
         return true;
