@@ -2,6 +2,7 @@
 
 namespace Marek\Covid19\Tests\Unit\Core\Http\Response;
 
+use Assert\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Marek\Covid19\Core\Http\Response\JsonResponse;
 
@@ -29,5 +30,15 @@ class JsonResponseTest extends TestCase
         self::assertFalse($response->isOk());
         self::assertEquals(json_decode($json, true), $response->getData());
         self::assertEquals($json, (string)$response);
+    }
+
+    public function testWithInvalidJson(): void
+    {
+        $this->expectExceptionMessage('Value "this is not a valid json" is not a valid JSON string.');
+
+        $json = 'this is not a valid json';
+
+        $response = new JsonResponse($json, 400);
+
     }
 }

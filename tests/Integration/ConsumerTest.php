@@ -43,22 +43,23 @@ class ConsumerTest extends TestCase
         $this->cacheHandler->expects(self::once())
             ->method('has')
             ->with('https://api.covid19api.com/summary')
-            ->willReturn(false);
+            ->willReturn(true);
 
         $json = file_get_contents(__DIR__ . '/summary.json');
 
-        $response = new JsonResponse($json, 200);
+        $this->httpClient->expects(self::never())
+            ->method('get');
 
-        $this->httpClient->expects(self::once())
+        $data = json_decode($json, true);
+
+        $this->cacheHandler->expects(self::once())
             ->method('get')
             ->with('https://api.covid19api.com/summary')
-            ->willReturn($response);
+            ->willReturn($data);
 
         $summary = $this->consumer->getSummary();
 
         self::assertCount(2, $summary->getSummaries());
-
-        $data = json_decode($json, true);
 
         self::assertSame($data['Countries'][0]['Country'], $summary->getSummaries()[0]->country);
         self::assertSame($data['Countries'][0]['Slug'], $summary->getSummaries()[0]->slug);
@@ -95,11 +96,16 @@ class ConsumerTest extends TestCase
             ->with('https://api.covid19api.com/countries')
             ->willReturn($response);
 
+        $data = json_decode($json, true);
+
+        $this->cacheHandler->expects(self::once())
+            ->method('set')
+            ->with('https://api.covid19api.com/countries', $data);
+
         $countries = $this->consumer->getCountries();
 
         self::assertCount(2, $countries->getCountries());
 
-        $data = json_decode($json, true);
 
         self::assertSame($data[0]['Country'], $countries->getCountries()[0]->country);
         self::assertSame($data[0]['Slug'], $countries->getCountries()[0]->slug);

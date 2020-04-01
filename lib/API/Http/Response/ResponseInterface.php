@@ -6,6 +6,8 @@ namespace Marek\Covid19\API\Http\Response;
 
 interface ResponseInterface
 {
+    public const HTTP_OK = 200;
+
     /**
      * Returns HTTP status code.
      */
