@@ -18,7 +18,6 @@
         <whitelist>
             <directory suffix=".php">lib/</directory>
             <exclude>
-                <file>lib/Core/Http/Client/SymfonyHttpClient.php</file>
                 <file>lib/Core/Factory/ConsumerFactory.php</file>
             </exclude>
         </whitelist>
