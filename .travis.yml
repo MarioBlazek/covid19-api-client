@@ -1,7 +1,7 @@
 language: php
 
+os: linux
 dist: trusty
-sudo: false
 
 cache:
     directories:
@@ -26,7 +26,7 @@ script:
     - composer psalm
 
 # disable mail notifications
-notification:
+notifications:
     email: false
 
 # reduce depth (history) of git checkout
