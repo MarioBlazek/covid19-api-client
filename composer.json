@@ -30,18 +30,18 @@
     "require": {
         "php": "^7.3",
         "ext-json": "*",
-        "symfony/serializer": "^5.0",
-        "symfony/http-client": "^5.0",
-        "symfony/yaml": "^5.0",
-        "symfony/property-access": "^5.0",
-        "symfony/property-info": "^5.0",
-        "symfony/cache": "^5.0",
+        "symfony/serializer": "^4.4 || ^5.0",
+        "symfony/http-client": "^4.4 || ^5.0",
+        "symfony/yaml": "^4.4 || ^5.0",
+        "symfony/property-access": "^4.4 || ^5.0",
+        "symfony/property-info": "^4.4 || ^5.0",
+        "symfony/cache": "^4.4 || ^5.0",
         "beberlei/assert": "^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpunit/phpunit": "^9.0",
-        "symfony/var-dumper": "^5.0",
+        "symfony/var-dumper": "^4.4 || ^5.0",
         "vimeo/psalm": "^3.10"
     },
     "scripts": {
